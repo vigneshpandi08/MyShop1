@@ -1,6 +1,7 @@
 using MyShop.DataAccess.SQL;
 using MyShop1.Core.Contracts;
 using MyShop1.Core.Models;
+using MyShop1.Services;
 using System;
 
 using Unity;
@@ -47,6 +48,9 @@ namespace MyShop1.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepo<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepo<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepo<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepo<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }
